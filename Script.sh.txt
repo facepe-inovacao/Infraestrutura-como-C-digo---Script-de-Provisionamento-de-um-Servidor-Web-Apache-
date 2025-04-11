@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Atualizando o servidor
+echo "Atualizando o Linux"
+apt-get update
+apt-get upgrade -y
+
+# Instalando o Apache
+Echo "Instalando o apache"
+apt install apache2 -y
+
+# Instalando o unzip
+apt install unzip -y
+
+echo "Baixando o arquivo da aplicação"
+# Acessando a pasta
+cd /tmp
+
+# Baixando o arquivo
+wget https://github.com/denilsonbonatti/linux-site-dio/archive/refs/heads/main.zip
+
+# Descompactando e copiando o arquivo
+echo "Descompactando e copiando o arquivo"
+unzip main.zip
+cd linux-site-dio-main
+cp -R * /var/www/html/
+
+echo "Finalizado"
